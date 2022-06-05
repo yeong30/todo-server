@@ -10,7 +10,7 @@ app.listen(process.env.PORT || 3000, () => {
 app.use(function (req, res, next) {
   var oneof = false;
   if (req.headers.origin) {
-    res.header("Access-Control-Allow-Origin", "https://yeong30.github.io/");
+    res.header("Access-Control-Allow-Origin", "https://yeong30.github.io");
     oneof = true;
   }
   if (req.headers["access-control-request-method"]) {
