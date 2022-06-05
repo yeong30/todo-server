@@ -30,13 +30,14 @@ app.use(function (req, res, next) {
   if (oneof) {
     res.header("Access-Control-Max-Age", 60 * 60 * 24 * 365);
   }
-
-  // intercept OPTIONS method
-  if (oneof && req.method == "OPTIONS") {
-    res.send(200);
-  } else {
-    next();
-  }
+  next();
+  // }
+  // // intercept OPTIONS method
+  // if (oneof && req.method == "OPTIONS") {
+  //   res.sendStatus(200);
+  // } else {
+  //   next();
+  // }
 });
 
 router.get("/", (req, res) => {

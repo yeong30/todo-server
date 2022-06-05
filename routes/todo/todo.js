@@ -71,19 +71,12 @@ router.delete("/deleteTodo", async function (request, response) {
       database,
       "todos/" + request.body.register_date + "/" + request.body.id
     );
-    set(todoRef, null).then((result) => {
-      response.send({
-        message: "request success!",
-        body: null,
-      });
-    });
-    response.status(200).send({
+    let result = await set(todoRef, null);
+    response.send({
       message: "Requset is success",
-      body: todos,
+      body: null,
     });
   } catch (error) {
-    console.log("common error : ", error);
-
     response.status(400).send({
       message: "request is failed" + error,
       body: null,
