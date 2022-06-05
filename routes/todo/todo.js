@@ -22,6 +22,7 @@ router.post("/addTodo", async function (request, response) {
         throw new Error(error);
       });
   } catch (error) {
+    console.log("addTodo error : ", error);
     response.status(404).send({
       message: "request is failed" + error,
       body: null,
@@ -52,6 +53,8 @@ router.get("/getTodos", async function (request, response) {
       body: todos,
     });
   } catch (error) {
+    console.log("getTodo error : ", error);
+
     response.status(400).send({
       message: "here...request is failed" + error,
       body: null,
@@ -79,6 +82,8 @@ router.delete("/deleteTodo", async function (request, response) {
       body: todos,
     });
   } catch (error) {
+    console.log("common error : ", error);
+
     response.status(400).send({
       message: "request is failed" + error,
       body: null,
@@ -101,6 +106,8 @@ router.post("/update/checked", async function (request, response) {
       body: request.body.id,
     });
   } catch (error) {
+    console.log("update checked error : ", error);
+
     console.log(error);
     response.status(200).send({
       message: "request is failed. " + error,
