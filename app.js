@@ -58,7 +58,9 @@ app.use(
 const todos = require("./routes/todo/todo");
 app.use("/todos", bodyParser.json(), todos);
 
-setInterval(() => {
+const http = require("http");
+const cron = require("node-cron");
+cron.schedule("*/20 23,0-14 * * *", () => {
   console.log("10 minutes!");
   http.get("https://yeong-todos.herokuapp.com/");
-}, 600000);
+});
