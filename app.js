@@ -40,7 +40,7 @@ app.use(function (req, res, next) {
   // }
 });
 
-router.get("/", (req, res) => {
+router.get("/awake", (req, res) => {
   res.send("HELLO");
 });
 
@@ -61,6 +61,6 @@ app.use("/todos", bodyParser.json(), todos);
 const http = require("http");
 const cron = require("node-cron");
 cron.schedule("*/20 23,0-14 * * *", () => {
-  console.log("10 minutes!");
-  http.get("https://yeong-todos.herokuapp.com/");
+  console.log("10 minutes awake");
+  http.get("https://yeong-todos.herokuapp.com/awake");
 });
